@@ -35,6 +35,7 @@ namespace DiscordBot
 
         public async Task InstallCommands()
         {
+            map.Add(new InsultProvider());
             // Hook the MessageReceived Event into our Command Handler
             client.MessageReceived += HandleCommand;
             // Discover all of the commands in this assembly and load them.
