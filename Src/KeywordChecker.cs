@@ -7,28 +7,31 @@ using System.Threading.Tasks;
 
 namespace DiscordBot
 {
-    internal delegate IResult KeywordDelegate(SocketUserMessage message, ICommandContext context, int index); 
     internal static class KeywordChecker
     {
-        private static readonly Dictionary<string, KeywordDelegate> delegates;
+        private static readonly Dictionary<string[], Func<SocketUserMessage, ICommandContext, int, string, Task<ExecuteResult>>> delegates;
 
         static KeywordChecker()
         {
-            delegates = new Dictionary<string, KeywordDelegate>
+            delegates = new Dictionary<string[], Func<SocketUserMessage, ICommandContext, int, string, Task<ExecuteResult>>>
             {
-                { Banana.Keyword, Banana.Delegate }
+                { Banana.Keywords, Banana.Delegate },
+                { Eksdee.Keywords, Eksdee.Delegate }
             };
         }
 
         public static async Task<IResult> ExecuteAsync(SocketUserMessage message, ICommandContext context)
         {
             StringComparison compare = StringComparison.OrdinalIgnoreCase; ;
-            foreach(string key in delegates.Keys)
+            foreach (string[] keys in delegates.Keys)
             {
-                int index = message.Content.IndexOf(key, compare);
-                if (index > -1)
+                foreach (string key in keys)
                 {
-                    return await Task.Run(() => delegates[key].Invoke(message, context, index));
+                    int index = message.Content.IndexOf(key, compare);
+                    if (index > -1)
+                    {
+                        return await delegates[keys].Invoke(message, context, index, key);
+                    }
                 }
             }
             return ExecuteResult.FromSuccess();
