@@ -1,8 +1,5 @@
-﻿using Discord;
-using Discord.Commands;
+﻿using Discord.Commands;
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Threading.Tasks;
 
 namespace DiscordBot.Modules
@@ -11,7 +8,7 @@ namespace DiscordBot.Modules
     {
         [Command("aesthetic"), Summary("Aesthetify a message.")]
         [Alias("aest", "jcostyle")]
-        public async Task Ban([Remainder, Summary("The string to make aesthetic.")] string message)
+        public async Task Ban([Remainder, Summary("The string to make aesthetic")] string message)
         {
             string result = "";
             for(int index = 0; index < message.Length; index++)

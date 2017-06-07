@@ -1,5 +1,4 @@
 ﻿using Discord;
-using Discord.WebSocket;
 using Discord.Commands;
 using System.Threading.Tasks;
 
@@ -8,7 +7,7 @@ namespace DiscordBot.Modules
     public class BanListModule : ModuleBase
     {
         [Command("ban"), Summary("Ban a user.")]
-        public async Task Ban([Summary("The user to ban.")] IUser user, [Remainder, Summary("The reason for the ban.")] string reason)
+        public async Task Ban([Summary("The user to ban")] IUser user, [Remainder, Summary("The reason for the ban")] string reason)
         {
             // ReplyAsync is a method on ModuleBase
             await ReplyAsync("not implemented");
@@ -16,14 +15,14 @@ namespace DiscordBot.Modules
 
         [Command("multiban"), Summary("Ban a user multiple times.")]
         [Alias("mban")]
-        public async Task MultiBan([Summary("The user to ban.")] IUser user, [Summary("How often to ban the user.")] int amount, [Remainder, Summary("The reason for the bans.")] string reason)
+        public async Task MultiBan([Summary("The user to ban")] IUser user, [Summary("How often to ban the user")] int amount, [Remainder, Summary("The reason for the bans")] string reason)
         {
             // ReplyAsync is a method on ModuleBase
             await ReplyAsync("not implemented");
         }
 
         [Command("unban"), Summary("Unban a user.")]
-        public async Task Unban([Summary("The user to unban.")] IUser user, [Remainder, Summary("The reason for the unban.")] string reason)
+        public async Task Unban([Summary("The user to unban")] IUser user, [Remainder, Summary("The reason for the unban")] string reason)
         {
             // ReplyAsync is a method on ModuleBase
             await ReplyAsync("not implemented");
@@ -31,7 +30,7 @@ namespace DiscordBot.Modules
 
         [Command("multiunban"), Summary("Unban a user multiple times.")]
         [Alias("muban")]
-        public async Task MultiUnban([Summary("The user to ban.")] IUser user, [Summary("How often to ban the user.")] int amount, [Remainder, Summary("The reason for the bans.")] string reason)
+        public async Task MultiUnban([Summary("The user to ban")] IUser user, [Summary("How often to ban the user")] int amount, [Remainder, Summary("The reason for the bans")] string reason)
         {
             // ReplyAsync is a method on ModuleBase
             await ReplyAsync("not implemented");
