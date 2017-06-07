@@ -67,10 +67,10 @@ namespace DiscordBot.Modules
                         if (!pr.IsSuccess)
                         {
                             allowed = false;
-                            reasons += " " + pr.ErrorReason;
+                            reasons += ". " + pr.ErrorReason;
                         }
                     }
-                    result += "Permission: You're " + (allowed ? "" : "not ") + "allowed to use this command." + (allowed ? "" : "Reason(s):" + reasons);
+                    result += "Permission: You're " + (allowed ? "" : "not ") + "allowed to use this command." + (allowed ? "" : " Reason(s):" + reasons);
 
                     result += endl + endl;
                 }

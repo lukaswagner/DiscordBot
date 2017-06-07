@@ -6,6 +6,7 @@ namespace DiscordBot.Modules
 {
     public class Aesthetics : ModuleBase
     {
+        [RequireContext(ContextType.DM)]
         [Command("aesthetic"), Summary("Aesthetify a message.")]
         [Alias("aest", "jcostyle")]
         public async Task Ban([Remainder, Summary("The string to make aesthetic")] string message)

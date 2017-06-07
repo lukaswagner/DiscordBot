@@ -6,6 +6,7 @@ namespace DiscordBot.Modules
 {
     public class BanListModule : ModuleBase
     {
+        [RequireElevatedPermissions]
         [Command("ban"), Summary("Ban a user.")]
         public async Task Ban([Summary("The user to ban")] IUser user, [Remainder, Summary("The reason for the ban")] string reason)
         {
@@ -13,6 +14,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireElevatedPermissions]
         [Command("multiban"), Summary("Ban a user multiple times.")]
         [Alias("mban")]
         public async Task MultiBan([Summary("The user to ban")] IUser user, [Summary("How often to ban the user")] int amount, [Remainder, Summary("The reason for the bans")] string reason)
@@ -21,6 +23,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireElevatedPermissions]
         [Command("unban"), Summary("Unban a user.")]
         public async Task Unban([Summary("The user to unban")] IUser user, [Remainder, Summary("The reason for the unban")] string reason)
         {
@@ -28,6 +31,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireElevatedPermissions]
         [Command("multiunban"), Summary("Unban a user multiple times.")]
         [Alias("muban")]
         public async Task MultiUnban([Summary("The user to ban")] IUser user, [Summary("How often to ban the user")] int amount, [Remainder, Summary("The reason for the bans")] string reason)
@@ -36,6 +40,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireNormalPermissions]
         [Command("bancount"), Summary("Display how many times a user has been banned.")]
         [Alias("bc")]
         public async Task BanCount([Summary("The (optional) user to get info for")] IUser user = null)
@@ -45,6 +50,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireNormalPermissions]
         [Command("scoreboard"), Summary("Display how many times each user has been banned.")]
         public async Task Scoreboard()
         {
@@ -52,6 +58,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireNormalPermissions]
         [Command("banlist"), Summary("Link a list of all bans.")]
         public async Task Banlist()
         {
@@ -59,6 +66,7 @@ namespace DiscordBot.Modules
             await ReplyAsync("not implemented");
         }
 
+        [RequireOwner]
         [Command("recalculateBans"), Summary("Recalculate the number of bans for each user.")]
         [Alias("rb")]
         public async Task RecalculateBans()

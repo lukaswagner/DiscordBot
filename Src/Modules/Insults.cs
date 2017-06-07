@@ -8,6 +8,7 @@ namespace DiscordBot.Modules
     {
         public InsultProvider Insults { get; set; }
 
+        [RequireNormalPermissions]
         [Command("insult"), Summary("Insult a user.")]
         public async Task Ban([Summary("The user to insult")] IUser user)
         {
