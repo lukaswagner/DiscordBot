@@ -2,6 +2,7 @@
 using Discord.Commands;
 using Discord.WebSocket;
 using System;
+using System.IO;
 using System.Reflection;
 using System.Threading.Tasks;
 
@@ -23,7 +24,7 @@ namespace DiscordBot
 
             client.Log += Log;
 
-            string token = "MzA2NDY4OTYyODU2NTk5NTUz.C-ENDA.WDO_vWHrtiRsiZ4sVGq8FuqHGOs";
+            string token = File.ReadAllText("Resources/token.txt");
 
             await InstallCommands();
             await client.LoginAsync(TokenType.Bot, token);
